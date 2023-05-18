@@ -27,7 +27,7 @@ Accessing all elements of an array
 
     ugly-json-producer | json - 'author.books[].title'
 
-Here are the examples above applied to the ugly.json file found in thie repo.
+Here are the examples above applied to the ugly.json file found in this repo.
 
     $ json ugly.json 
     {
