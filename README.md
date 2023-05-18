@@ -29,6 +29,8 @@ Accessing all elements of an array
 
 Here are the examples above applied to the ugly.json file found in this repo.
 
+    $ cat ugly.json
+    {"author":{"firstname":"Fred","surname":"Bloggs","books":[{"title":"War and Peace","date":1869},{"title":"Zen and the Art of Motorcycle Maintenance","date":1974}]}}
     $ json ugly.json 
     {
       "author": {
