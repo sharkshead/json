@@ -40,7 +40,7 @@ Here are the examples above applied to the ugly.json file found in thie repo.
             "date": 1869
           },
           {
-            "title": "The Art of Motorcycle Maintenance",
+            "title": "Zen and the Art of Motorcycle Maintenance",
             "date": 1974
           }
         ]
