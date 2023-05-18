@@ -53,5 +53,5 @@ Here are the examples above applied to the ugly.json file found in thie repo.
     "author.books[0].title": "War and Peace"
     $ json ugly.json 'author.books[].title'
     "author.books[].title": "War and Peace"
-    "author.books[].title": "The Art of Motorcycle Maintenance"
+    "author.books[].title": "Zen and the Art of Motorcycle Maintenance"
     $ 
