@@ -27,3 +27,31 @@ Accessing all elements of an array
 
     ugly-json-producer | json - 'author.books[].title'
 
+Here are the examples above applied to the ugly.json file found in thie repo.
+
+    $ json ugly.json 
+    {
+      "author": {
+        "firstname": "Fred",
+        "surname": "Bloggs",
+        "books": [
+          {
+            "title": "War and Peace",
+            "date": 1869
+          },
+          {
+            "title": "The Art of Motorcycle Maintenance",
+            "date": 1974
+          }
+        ]
+      }
+    }
+    $ json ugly.json author.firstname author.surname
+    "author.firstname": "Fred"
+    "author.surname": "Bloggs"
+    $ json ugly.json 'author.books[0].title'
+    "author.books[0].title": "War and Peace"
+    $ json ugly.json 'author.books[].title'
+    "author.books[].title": "War and Peace"
+    "author.books[].title": "The Art of Motorcycle Maintenance"
+    $ 
