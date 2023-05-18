@@ -2,7 +2,7 @@
 A command that turns unreadable JSON, as produced by many commands and APIs these daya,
 into a much more human-friendly format.
 
-json will read from standard or from a file if specified
+json will read from standard input or from a file if specified
 
     ugly-json-producer | json
 
