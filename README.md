@@ -12,12 +12,11 @@ You can output portions of the input by including the name
 of the objects as arguments.
 Use a - as the file name to read standard input.
 
-    ugly-json-producer | json - author.firstname author.surname
+    ugly-json-producer | json - author.firstname 'author["surname"]'
 
-    json ugly.json author.firstname author.surname
+    json ugly.json author.firstname 'author["surname"]'
 
-You can access arrays in two different ways: explicit reference
-or all elements.
+You can access arrays in two different ways: explicit reference or all elements.
 
 Accessing array elemens explicitly
 
@@ -48,9 +47,9 @@ Here are the examples above applied to the ugly.json file found in this repo.
         ]
       }
     }
-    $ json ugly.json author.firstname author.surname
+    $ json ugly.json author.firstname 'author["surname"]'
     "author.firstname": "Fred"
-    "author.surname": "Bloggs"
+    "author["surname"]": "Bloggs"
     $ json ugly.json 'author.books[0].title'
     "author.books[0].title": "War and Peace"
     $ json ugly.json 'author.books[].title'
