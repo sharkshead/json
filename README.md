@@ -65,4 +65,4 @@ producing a minimised single, unterminated line of (ugly) JSON.
 
 Takes its input from standard input with no arguments
 or from a file if specified as the first argument.
-Second and subsequent areguments are ignored.
+Second and subsequent arguments are ignored.
