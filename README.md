@@ -1,4 +1,6 @@
-# json
+# json and uglyjson
+
+## json
 A command that turns unreadable JSON, as produced by many commands and APIs these daya,
 into a much more human-friendly format.
 
@@ -56,3 +58,11 @@ Here are the examples above applied to the ugly.json file found in this repo.
     "author.books[].title": "War and Peace"
     "author.books[].title": "Zen and the Art of Motorcycle Maintenance"
     $ 
+
+## uglyjson
+A command to strip out all unnecessary space and newline characters from JSON,
+producing a minimised single, unterminated line of (ugly) JSON.
+
+Takes its input from standard input with no arguments
+or from a file if specified as the first argument.
+Second and subsequent areguments are ignored.
