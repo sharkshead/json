@@ -30,8 +30,8 @@ SOFTWARE.
 #include <string.h>
 #include <stdio.h>
 
-#define next()  c = fgetc(in)
-// #define next()  { c = fgetc(in); printf("%c", c); fflush(stdout); }
+#define next()  c = fgetc(in); if(c == '\n') lineNumber++
+// #define next()  { c = fgetc(in); if(c == '\n') lineNumber++; printf("%c", c); fflush(stdout); }
 #define skip()  while((c == ' ') || (c == '\n') || (c == '\r')) next()
 
 #define TYPE_KEYWORD    0
@@ -82,6 +82,7 @@ struct Request {
 
 FILE *in;
 int c;
+int lineNumber;
 
 Attribute *parseAttribute() {
   Object *parseObject(void);
@@ -94,7 +95,7 @@ Attribute *parseAttribute() {
 
   skip();
   if((c != '"') && (c != '\'')) {
-    printf("Attribute key is not a string\n");
+    printf("Attribute key is not a string, line %d\n", lineNumber);
     exit(1);
   }
   close = c;
@@ -103,7 +104,7 @@ Attribute *parseAttribute() {
   p = key;
   while(c != close) {
     if(c == EOF) {
-      printf("EOF in attribute key\n");
+      printf("EOF in attribute key, line %d\n", lineNumber);
       exit(1);
     }
     if(c == '\\') next();
@@ -116,13 +117,13 @@ Attribute *parseAttribute() {
 
   skip();
   if(c != ':') {
-    printf("Attribute missing colon\n");
+    printf("Attribute missing colon, line %d\n", lineNumber);
     exit(1);
   }
   next();
 
   if(c == EOF) {
-    printf("EOF in attribute value\n");
+    printf("EOF in attribute value, line %d\n", lineNumber);
     exit(1);
   }
   p = (char *) malloc(strlen(key) + 1);
@@ -194,7 +195,7 @@ Object *parseObject() {
     } while(c == ',');
     skip();
     if(c != ']') {
-      printf("Array not terminated correctly\n");
+      printf("Array not terminated correctly, line %d\n", lineNumber);
       exit(1);
     }
     next();
@@ -205,7 +206,7 @@ Object *parseObject() {
     p = string;
     while(c != close) {
       if(c == EOF) {
-        printf("EOF in string value key\n");
+        printf("EOF in string value key, line %d\n", lineNumber);
         exit(1);
       }
       if(c == '\\') {
@@ -319,12 +320,12 @@ Request *parseRequest(char *req) {
         r->type = REQ_TYPE_STAR;
         q = p;
       } else {
-        printf("Illegal index or quoted key\n");
+        printf("Illegal index or quoted key, line %d\n", lineNumber);
         exit(1);
       }
       while(*q == ' ') q++;
       if(*q != ']') {
-        printf("Unclosed index\n");
+        printf("Unclosed index, line %d\n", lineNumber);
         exit(1);
       }
       q++;
@@ -524,6 +525,7 @@ int main(int ac, char **av) {
     in = stdin;
   }
 
+  lineNumber = 1;
   next();
   while((o = parseObject()) != (Object *) 0) {
     if(ac > 2) {
