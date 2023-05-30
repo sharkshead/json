@@ -261,9 +261,10 @@ Object *parseObject() {
     o->type = TYPE_KEYWORD;
     o->typeKeyword = "false";
   } else {
-    // printf("Object expected. Instead have '%c'\n", c);
-    // exit(1);
-    delete(o);
+    if(c != -1) {
+      printf("Object expected. Instead have '%c', line %d\n", c, lineNumber);
+      exit(1);
+    }
     o = (Object *) 0;
   }
 
