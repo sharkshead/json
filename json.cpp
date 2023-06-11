@@ -365,7 +365,7 @@ void printObject(const char *what, Object *o, int indent, bool withIndent) {
 
   if(o == (Object *) 0) return;
 
-  if((indent == 0) && (what[0] != 0)) printf("\"%s\": ", what);
+  if((indent == 0) && (what[0] != 0)) printf("%s: ", what);
 
   if(withIndent)
     for(i = 0; i < indent; i++) printf("  ");
