@@ -50,13 +50,13 @@ Here are the examples above applied to the ugly.json file found in this repo.
       }
     }
     $ json ugly.json author.firstname 'author["surname"]'
-    "author.firstname": "Fred"
-    "author["surname"]": "Bloggs"
+    author.firstname: "Fred"
+    author["surname"]: "Bloggs"
     $ json ugly.json 'author.books[0].title'
-    "author.books[0].title": "War and Peace"
+    author.books[0].title: "War and Peace"
     $ json ugly.json 'author.books[].title'
-    "author.books[].title": "War and Peace"
-    "author.books[].title": "Zen and the Art of Motorcycle Maintenance"
+    author.books[].title: "War and Peace"
+    author.books[].title: "Zen and the Art of Motorcycle Maintenance"
     $ 
 
 ## uglyjson
